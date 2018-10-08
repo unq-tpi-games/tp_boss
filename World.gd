@@ -6,12 +6,10 @@ var tree = preload("res://resources/Trees.tscn")
 
 func _ready():
 	var new_resource
-	var ran = rand_range(0, 1024)
 	new_resource = tree.instance()
+	new_resource.position =  Vector2(250, 100)
 	add_child(new_resource)
-	if (ran < 5): 
-		new_resource = tree.instance()
-		add_child(new_resource)
+	
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass

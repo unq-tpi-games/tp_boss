@@ -6,6 +6,7 @@ extends "res://Resource.gd"
 
 func _ready():
 	available = 100
+	$Status/available.text = "Disp: "+str(available)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
