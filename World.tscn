@@ -40,12 +40,12 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable", "collision" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="Char" index="0"]
 
 position = Vector2( 564.656, 151.098 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
