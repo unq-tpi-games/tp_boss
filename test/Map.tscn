@@ -11,9 +11,11 @@ extents = Vector2( 333.333, 333.333 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 36.8592 )
+extents = Vector2( 10, 10 )
 
 [node name="Map" type="Node2D" index="0"]
+
+position = Vector2( -40, 0 )
 
 [node name="Brick" type="Sprite" parent="." index="0"]
 
@@ -24,6 +26,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Brick" index="0"]
 
+position = Vector2( -7.62939e-06, -7.62939e-06 )
+scale = Vector2( 5, 5 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -31,22 +35,25 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick/StaticBody2D" index="0"]
 
 position = Vector2( 3.8147e-06, 3.8147e-06 )
-scale = Vector2( 0.475719, 0.475719 )
+scale = Vector2( 0.0951438, 0.0951438 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Tree" type="Sprite" parent="." index="1"]
 
+position = Vector2( 50, 0 )
 scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tree" index="0"]
 
+scale = Vector2( 31.25, 31.25 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -54,11 +61,12 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/StaticBody2D" index="0"]
 
-position = Vector2( -12.3886, 13.1654 )
-scale = Vector2( -98.4927, 27.0416 )
+position = Vector2( 2.86102e-06, -3.33786e-06 )
+scale = Vector2( 2.46154, 2.46154 )
 shape = SubResource( 2 )
 
 
