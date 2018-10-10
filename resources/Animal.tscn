@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Animal.gd" type="Script" id=2]
@@ -23,7 +23,12 @@ tracks/0/keys = {
 "values": [ 0, 0, 0, 3 ]
 }
 
-[node name="Animal" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.0286, 10 )
+
+[node name="Animal" index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 1.02667, -0.513344 )
 script = ExtResource( 2 )
@@ -69,5 +74,11 @@ size_flags_vertical = 4
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -1.90256, 1.5883 )
+scale = Vector2( 2.30725, 1.619 )
+shape = SubResource( 2 )
 
 

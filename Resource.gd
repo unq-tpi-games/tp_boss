@@ -11,7 +11,9 @@ func _ready():
 func use(quant):
 	available = available-quant
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	if available == 0:
+		hide()
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	pass
