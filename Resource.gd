@@ -12,6 +12,7 @@ func use(quant):
 	available = available-quant
 
 func _process(delta):
+	#Ver cómo desaparecer a todos los hijos de los nodos
 	if available == 0:
 		hide()
 	# Called every frame. Delta is time since last frame.
