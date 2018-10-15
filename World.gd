@@ -1,16 +1,23 @@
 extends Node
-var tree = preload("res://resources/Trees.tscn")
+var tree = preload("res://resources/Tree.tscn")
 var sheep = preload("res://resources/Animal.tscn")
+var rock = preload("res://resources/Rock.tscn")
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
 func _ready():
-	var new_resource
+	var tree_resource
 	var sheep_resource
-	new_resource = tree.instance()
-	new_resource.position =  Vector2(250, 100)
-	add_child(new_resource)
+	var rock_resource
+	
+	rock_resource = rock.instance()
+	rock_resource.position = Vector2(275,200)
+	add_child(rock_resource)
+	
+	tree_resource = tree.instance()
+	tree_resource.position =  Vector2(250, 100)
+	add_child(tree_resource)
 	
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(400, 450)
