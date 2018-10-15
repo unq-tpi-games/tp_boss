@@ -4,13 +4,13 @@
 [ext_resource path="res://resources/Tree.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/tree.png" type="Texture" id=3]
 
-[node name="Tree" instance=ExtResource( 1 )]
+[node name="Tree" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 8.46002, 8.31631 )
+position = Vector2( 0.860046, 7.36631 )
 scale = Vector2( 7.03708, 6.60895 )
 
 [node name="Sprite" parent="." index="2"]
