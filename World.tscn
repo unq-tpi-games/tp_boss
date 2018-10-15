@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
-[ext_resource path="res://assets/img/character.png" type="Texture" id=3]
+[ext_resource path="res://Char.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resource.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -34,26 +29,7 @@ expand = true
 stretch_mode = 2
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="Char" type="KinematicBody2D" parent="." index="1"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
-
-[node name="Sprite" type="Sprite" parent="Char" index="0"]
-
-position = Vector2( 564.656, 151.098 )
-scale = Vector2( 0.05, 0.05 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Char" index="1"]
-
-position = Vector2( 561.009, 151.045 )
-scale = Vector2( 3.85378, 4.63983 )
-shape = SubResource( 1 )
+[node name="Char" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="Resource" parent="." index="2" instance=ExtResource( 4 )]
 
