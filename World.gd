@@ -23,6 +23,7 @@ func _ready():
 	sheep_resource.position =  Vector2(400, 450)
 	add_child(sheep_resource)
 	
+	$HUD.set_time_worker($Timer)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
