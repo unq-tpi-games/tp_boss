@@ -22,14 +22,14 @@ func get_day_number():
 func is_AM():
 	return (time_hours > 0 && time_hours <12)
 	
-func is_PC():
-	return (time_hours <= 0 && time_hours >=12)
+func is_PM():
+	return (time_hours <= 24 && time_hours >=12)
 
 func is_it_day():
 	return (time_hours >=7 && time_hours <=19)
 
 func is_it_night():
-	return (time_hours >19 && time_hours <7)
+	return ((time_hours >19 && time_hours <24) || (time_hours >=0 && time_hours <7))
 
 
 func _process(delta):

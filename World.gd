@@ -26,9 +26,17 @@ func _ready():
 	$HUD.set_time_worker($Timer)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	set_process(true)
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	#check_daytime()
+	pass
+
+
+func check_daytime():
+	if($Timer.is_it_day()):
+		pass
+		
+	if( $Timer.is_it_night()):
+		pass

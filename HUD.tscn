@@ -12,7 +12,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Border" type="Sprite" parent="." index="0"]
 
 position = Vector2( 511.95, 299.576 )
 scale = Vector2( 1.28803, 1 )
