@@ -1,7 +1,7 @@
 extends Node
 
 var available
-var max_quantity
+const MAX_QUANTITY = 100
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -16,7 +16,7 @@ func _process(delta):
 	if available == 0:
 		hide()
 		queue_free()
-	
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
 	pass
+
+func _on_Resource_body_entered(body):
+	get_node("/root/World").gather(body,self)

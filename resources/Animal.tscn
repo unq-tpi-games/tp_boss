@@ -28,7 +28,9 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
-[node name="Animal" instance=ExtResource( 1 )]
+[node name="Animal" index="0" groups=[
+"animal",
+] instance=ExtResource( 1 )]
 
 position = Vector2( 1.02667, -0.513344 )
 script = ExtResource( 2 )
