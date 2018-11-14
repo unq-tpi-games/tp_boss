@@ -11,6 +11,9 @@ var wood = 0
 var food = 0
 var stone = 0
 
+var health_secs = 0
+var food_secs = 0
+
 func _physics_process(delta):
     #velocity.y += delta * GRAVITY
 
@@ -34,13 +37,35 @@ func _ready():
 func receive(obj, quantity):
 	if obj.is_in_group("tree"):
 		wood += quantity
-		get_node("/root/World").hud_set_wood(wood)
+		#get_node("/root/World").hud_set_wood(wood)
 	if obj.is_in_group("animal"):
 		food += quantity
-		get_node("/root/World").hud_set_food(food)
+		#get_node("/root/World").hud_set_food(food)
 	if obj.is_in_group("rock"):
 		stone += quantity
-		get_node("/root/World").hud_set_rock(stone)
+		#get_node("/root/World").hud_set_rock(stone)
 		
 func _process(delta):
+	hud_update()
+	if(food_secs <30):
+		food_secs += delta
+	if(health_secs < 12):
+		health_secs += delta
+	if (health_secs >= 12):
+		if (food == 0):
+			health-=1
+		health_secs = 0
+	if(food_secs >= 30):
+		if (food >0):
+			food -= 10
+			health += 1
+		food_secs = 0
+	
+	
+func hud_update():
 	get_node("/root/World").hud_set_life(health)
+	get_node("/root/World").hud_set_food(food)
+	get_node("/root/World").hud_set_wood(wood)
+	get_node("/root/World").hud_set_rock(stone)
+	
+	
