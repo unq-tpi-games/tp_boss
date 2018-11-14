@@ -34,10 +34,13 @@ func _ready():
 func receive(obj, quantity):
 	if obj.is_in_group("tree"):
 		wood += quantity
+		get_node("/root/World").hud_set_wood(wood)
 	if obj.is_in_group("animal"):
 		food += quantity
+		get_node("/root/World").hud_set_food(food)
 	if obj.is_in_group("rock"):
 		stone += quantity
-	print("wood: " + String(wood))
-	print("stone: " + String(stone))
-	print("food: " + String(food))
+		get_node("/root/World").hud_set_rock(stone)
+		
+func _process(delta):
+	get_node("/root/World").hud_set_life(health)

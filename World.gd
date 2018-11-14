@@ -23,12 +23,9 @@ func _ready():
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(rand_range(0,600),rand_range(0,500))
 	add_child(sheep_resource)
-  	$HUD.set_time_worker($Timer)
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	$HUD.set_time_worker($Timer)
 	set_process(true)
 	pass
-
 
 func _process(delta):
 	wait_time -= 1
@@ -42,13 +39,21 @@ func gather(receiver, donor):
 	donor.use(donor.MAX_QUANTITY)
 	receiver.receive(donor, donor.MAX_QUANTITY)
 
-
-
-
-
 func check_daytime():
 	if($Timer.is_it_day()):
 		pass
 		
 	if( $Timer.is_it_night()):
 		pass
+		
+func hud_set_wood(wood):
+	$HUD.set_wood(wood)
+
+func hud_set_food(food):
+	$HUD.set_food(food)
+	
+func hud_set_rock(rock):
+	$HUD.set_rock(rock)
+	
+func hud_set_life(health):
+	$HUD.set_life(health)
