@@ -28,10 +28,11 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
-[node name="Animal" index="0" groups=[
+[node name="Animal" groups=[
 "animal",
 ] instance=ExtResource( 1 )]
 
+editor/display_folded = false
 position = Vector2( 1.02667, -0.513344 )
 script = ExtResource( 2 )
 
