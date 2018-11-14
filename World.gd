@@ -6,6 +6,31 @@ var wait_time = 500
 
 
 func _ready():
+	spawn_resources()
+	$HUD.set_time_worker($Timer)
+	set_process(true)
+	pass
+
+func _process(delta):
+	wait_time -= 1
+	if wait_time == 0:
+		spawn_resources()
+		wait_time = 500
+
+#receiver: el que recibe el recurso.
+#donor: el recurso o el que da un recurso.
+func gather(receiver, donor):
+	donor.use(donor.MAX_QUANTITY)
+	receiver.receive(donor, donor.MAX_QUANTITY)
+
+func check_daytime():
+	if($Timer.is_it_day()):
+		pass
+		
+	if( $Timer.is_it_night()):
+		pass
+		
+func spawn_resources():
 	var tree_resource
 	var sheep_resource
 	var rock_resource
@@ -23,29 +48,7 @@ func _ready():
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(rand_range(0,600),rand_range(0,500))
 	add_child(sheep_resource)
-	$HUD.set_time_worker($Timer)
-	set_process(true)
-	pass
 
-func _process(delta):
-	wait_time -= 1
-	if wait_time == 0:
-		_ready()
-		wait_time = 500
-
-#receiver: el que recibe el recurso.
-#donor: el recurso o el que da un recurso.
-func gather(receiver, donor):
-	donor.use(donor.MAX_QUANTITY)
-	receiver.receive(donor, donor.MAX_QUANTITY)
-
-func check_daytime():
-	if($Timer.is_it_day()):
-		pass
-		
-	if( $Timer.is_it_night()):
-		pass
-		
 func hud_set_wood(wood):
 	$HUD.set_wood(wood)
 
