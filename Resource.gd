@@ -14,6 +14,7 @@ func use(quant):
 func _process(delta):
 	#Ver cómo desaparecer a todos los hijos de los nodos
 	if available == 0:
+		hide()
 		queue_free()
 	pass
 
