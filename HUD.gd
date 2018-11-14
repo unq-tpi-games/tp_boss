@@ -6,9 +6,9 @@ var time_worker
 # var b = "textvar"
 
 func _ready():
-	$Info/goods/Wood.text = "Madera"
-	$Info/goods/Rock.text = "Piedra"
-	$Info/goods/Food.text = "Comida"
+	$Info/goods/Wood.text = "Madera: 0"
+	$Info/goods/Rock.text = "Piedra: 0"
+	$Info/goods/Food.text = "Comida: 0"
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	

@@ -32,9 +32,9 @@ func is_it_day():
 
 
 func _process(delta):
-	if (secs < 1):
+	if (secs < 0.1):
 		secs += delta
-	if (secs >= 1):
+	if (secs >= 0.1):
 		secs = 0
 		time_minutes += 1
 		if (time_minutes >=60):
