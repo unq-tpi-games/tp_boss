@@ -2,6 +2,7 @@ extends Node2D
 var day_number = 0
 var time_hours = 0
 var time_minutes= 0
+var secs = 0
 
 # class member variables go here, for example:
 # var a = 2
@@ -27,16 +28,13 @@ func is_PM():
 
 func is_it_day():
 	return (time_hours >=7 && time_hours <=19)
-
-func is_it_night():
 	return ((time_hours >19 && time_hours <24) || (time_hours >=0 && time_hours <7))
 
 
 func _process(delta):
-	var secs = 0
-	while (secs < 100000):
+	if (secs < 1):
 		secs += delta
-	if (secs >= 100000):
+	if (secs >= 1):
 		secs = 0
 		time_minutes += 1
 		if (time_minutes >=60):
@@ -45,5 +43,5 @@ func _process(delta):
 			if (time_hours >= 24):
 				day_number +=1
 				time_hours = 0
-#	print(String(time_hours)+":"+String(time_minutes))
+	#print(String(time_hours)+":"+String(time_minutes))
 	pass
