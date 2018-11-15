@@ -43,3 +43,11 @@ func _process(delta):
 	self.set_time()
 	self.set_day_number()
 	pass
+
+
+func _on_createTower_pressed():
+	pass # replace with function body
+
+
+func _on_createHouse_pressed():
+	pass # replace with function body

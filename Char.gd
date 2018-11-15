@@ -45,6 +45,7 @@ func receive(obj, quantity):
 		stone += quantity
 		#get_node("/root/World").hud_set_rock(stone)
 		
+#ojo: chequear bien lo de consumir 10 de comida
 func _process(delta):
 	hud_update()
 	if(food_secs <30):
@@ -52,11 +53,11 @@ func _process(delta):
 	if(health_secs < 12):
 		health_secs += delta
 	if (health_secs >= 12):
-		if (food == 0):
+		if (food <= 10):
 			health-=1
 		health_secs = 0
 	if(food_secs >= 30):
-		if (food >0):
+		if (food >10):
 			food -= 10
 			health += 1
 		food_secs = 0
