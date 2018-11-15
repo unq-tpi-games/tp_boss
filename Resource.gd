@@ -19,4 +19,5 @@ func _process(delta):
 	pass
 
 func _on_Resource_body_entered(body):
-	get_node("/root/World").gather(body,self)
+	if body.name == "Char":
+		get_node("/root/World").gather(body,self)

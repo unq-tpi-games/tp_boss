@@ -17,6 +17,7 @@ script = ExtResource( 1 )
 position = Vector2( 511.95, 299.576 )
 scale = Vector2( 1.28803, 1 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Info" type="Control" parent="." index="1"]
 
