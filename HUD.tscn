@@ -3,7 +3,7 @@
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/border.png" type="Texture" id=2]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -17,6 +17,7 @@ script = ExtResource( 1 )
 position = Vector2( 511.95, 299.576 )
 scale = Vector2( 1.28803, 1 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Info" type="Control" parent="." index="1"]
 

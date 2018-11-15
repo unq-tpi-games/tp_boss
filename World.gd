@@ -3,7 +3,7 @@ var tree = preload("res://resources/Tree.tscn")
 var sheep = preload("res://resources/Animal.tscn")
 var rock = preload("res://resources/Rock.tscn")
 var wait_time = 500
-
+var tower = preload("res://Tower.tscn")
 
 func _ready():
 	spawn_resources()
@@ -48,6 +48,14 @@ func spawn_resources():
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(rand_range(0,600),rand_range(0,500))
 	add_child(sheep_resource)
+
+func spawn_tower():
+	if $Char.stone >= 100:
+		var newTower = tower.instance()
+		newTower.set_scale(Vector2(0.3,0.3))
+		newTower.position = Vector2(rand_range(500,1000),rand_range(50, 350))
+		add_child(newTower)
+		$Char.stone -= 100
 
 func hud_set_wood(wood):
 	$HUD.set_wood(wood)

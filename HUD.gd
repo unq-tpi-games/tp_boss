@@ -1,9 +1,6 @@
 extends CanvasLayer
 var time_worker
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var world = get_node("/root/World")
 
 func _ready():
 	$Info/goods/Wood.text = "Madera: 0"
@@ -11,7 +8,6 @@ func _ready():
 	$Info/goods/Food.text = "Comida: 0"
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	
 	pass
 
 func set_time_worker(time_worker):
@@ -42,4 +38,6 @@ func set_time():
 func _process(delta):
 	self.set_time()
 	self.set_day_number()
+	if $Buttons/createTower.pressed:
+		world.spawn_tower()
 	pass

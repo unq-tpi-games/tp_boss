@@ -19,19 +19,25 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
+		$Sprite.play("walkLeft")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
+		$Sprite.play("walkRight")
 	elif Input.is_action_pressed("ui_up"):
 		velocity.y = -WALK_SPEED
+		$Sprite.play("walkUp")
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y = WALK_SPEED
+		$Sprite.play("walkDown")
 	else:
 		velocity.x = 0 
 		velocity.y = 0
+		$Sprite.play("idle")
 		
 	move_and_slide(velocity, Vector2(0, 0))
 
 func _ready():
+	set_scale(Vector2(30,30))
 	pass
 	
 func receive(obj, quantity):
