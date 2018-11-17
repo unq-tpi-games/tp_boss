@@ -10,6 +10,8 @@ func _ready():
 	pass
 
 #moverse hacia el punto del personaje mediante pathfinding & tweening
+func attack():
+	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
