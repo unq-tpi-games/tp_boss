@@ -4,7 +4,7 @@
 [ext_resource path="res://resources/Tree.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/tree.png" type="Texture" id=3]
 
-[node name="Tree" index="0" groups=[
+[node name="Tree" groups=[
 "tree",
 ] instance=ExtResource( 1 )]
 
