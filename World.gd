@@ -52,6 +52,7 @@ func check_daytime():
 		pass
 		
 func spawn_resources():
+	randomize()
 	var tree_resource
 	var sheep_resource
 	var rock_resource
