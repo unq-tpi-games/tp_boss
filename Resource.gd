@@ -1,7 +1,11 @@
 extends Node
 
 var available
-var max_quantity
+const MAX_QUANTITY = 100
+var being_used = false
+var character
+var time_elapsed = 0
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -10,13 +14,26 @@ func _ready():
 
 func use(quant):
 	available = available-quant
+	self.update()
+	
+func update():
+	$Status/available.text = "Disp: "+str(available)
 
 func _process(delta):
-	#Ver cómo desaparecer a todos los hijos de los nodos
 	if available == 0:
 		hide()
 		queue_free()
-	
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
+	if(being_used):
+		if Input.is_action_just_pressed("ui_accept"):
+			get_node("/root/World").gather(character,self)
+		
 	pass
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Char" :
+		character = body
+		being_used = true
+		
+func _on_Area2D_body_exited(body):
+	being_used = false
+	pass # replace with function body

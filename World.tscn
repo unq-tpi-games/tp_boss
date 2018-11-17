@@ -3,11 +3,11 @@
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
 [ext_resource path="res://Char.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Resource.tscn" type="PackedScene" id=4]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Timer.gd" type="Script" id=6]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Timer.gd" type="Script" id=5]
+[ext_resource path="res://Enemies.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -29,16 +29,47 @@ size_flags_vertical = 1
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 2
-_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Char" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="Resource" parent="." index="2" instance=ExtResource( 4 )]
+position = Vector2( 534.468, 163.734 )
+scale = Vector2( 1, 1 )
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
+[node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Timer" type="Node2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="HUD" index="3"]
 
-script = ExtResource( 6 )
+position = Vector2( 511.455, 299.453 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="Timer" type="Node2D" parent="." index="3"]
+
+position = Vector2( 510.919, 293.632 )
+script = ExtResource( 5 )
+
+[node name="Enemies" parent="." index="4" instance=ExtResource( 6 )]
 
 
