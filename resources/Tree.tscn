@@ -10,16 +10,21 @@
 
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
-
-position = Vector2( 0.860046, 7.36631 )
-scale = Vector2( 7.03708, 6.60895 )
-
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="1"]
 
 position = Vector2( -0.698334, 0.698334 )
 scale = Vector2( 0.06, 0.06 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0, 6.95024 )
+scale = Vector2( 1, 1.44426 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 0.860046, 7.36631 )
+scale = Vector2( 7.03708, 6.60895 )
 
 

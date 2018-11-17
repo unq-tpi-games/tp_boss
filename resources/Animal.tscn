@@ -4,11 +4,6 @@
 [ext_resource path="res://resources/Animal.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/sheep_eat_side.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10.0286, 10 )
-
 [sub_resource type="Animation" id=2]
 
 resource_name = "sheep_eat"
@@ -28,21 +23,19 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.0286, 10 )
+
 [node name="Animal" groups=[
 "animal",
 ] instance=ExtResource( 1 )]
 
-editor/display_folded = false
 position = Vector2( 1.02667, -0.513344 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
-
-position = Vector2( -1.90256, 1.5883 )
-scale = Vector2( 2.30725, 1.619 )
-shape = SubResource( 1 )
-
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="1"]
 
 texture = ExtResource( 3 )
 hframes = 4
@@ -58,5 +51,16 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/sheep_eat = SubResource( 2 )
 blend_times = [  ]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0.092124, 3.34556 )
+scale = Vector2( 4.03134, 1.386 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -1.90256, 1.5883 )
+scale = Vector2( 2.30725, 1.619 )
+shape = SubResource( 1 )
 
 
