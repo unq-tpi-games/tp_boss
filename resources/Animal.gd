@@ -9,6 +9,7 @@ func _ready():
 	$Status/available.rect_position = Vector2(self.position.x, self.position.y+50)
 	pass
 
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

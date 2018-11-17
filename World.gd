@@ -39,8 +39,10 @@ func _input(event):
 #receiver: el que recibe el recurso.
 #donor: el recurso o el que da un recurso.
 func gather(receiver, donor):
-	donor.use(donor.MAX_QUANTITY)
-	receiver.receive(donor, donor.MAX_QUANTITY)
+	#donor.use(donor.MAX_QUANTITY)
+	donor.use(10)
+	#receiver.receive(donor, donor.MAX_QUANTITY)
+	receiver.receive(donor,10)
 
 func check_daytime():
 	if($Timer.is_it_day()):
@@ -81,7 +83,6 @@ func spawn_tower(pos):
 		var newTower = tower.instance()
 		newTower.set_scale(Vector2(0.2,0.2))
 		newTower.position = pos
-		#newTower.position = Vector2(rand_range(500,1000),rand_range(50, 350))
 		add_child(newTower)
 		$Char.stone -= 100
 
