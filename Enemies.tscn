@@ -17,8 +17,13 @@ height = 18.4595
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "default",
-"speed": 5.0
+"name": "normal",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "fast",
+"speed": 8.0
 } ]
 
 [node name="Enemies" type="Node2D" index="0"]
@@ -51,11 +56,12 @@ scale = Vector2( 0.962405, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="FlyingEnemy" index="1"]
+[node name="sprite" type="AnimatedSprite" parent="FlyingEnemy" index="1"]
 
 position = Vector2( 0, -0.692963 )
 frames = SubResource( 2 )
-animation = "default"
+animation = "fast"
+frame = 2
 __meta__ = {
 "_edit_lock_": true
 }
