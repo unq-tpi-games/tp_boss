@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+
+[node name="Enemy" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+animation = "default"
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+

@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
 [ext_resource path="res://Char.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Timer.gd" type="Script" id=5]
-[ext_resource path="res://Enemies.tscn" type="PackedScene" id=6]
+[ext_resource path="res://FlyingEnemy.tscn" type="PackedScene" id=6]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 25600, 0, 25600, 25600, 0, 25600, 0, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 0, 0, 0, 25600, 25600, 25600, 25600, 0 ) ]
 
 [node name="World" type="Node"]
 
@@ -31,12 +37,23 @@ expand = true
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
+[node name="nav" type="Navigation2D" parent="TextureRect" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="TextureRect/nav" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
 [node name="Char" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 534.468, 163.734 )
 scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
+
+editor/display_folded = true
 
 [node name="Camera2D" type="Camera2D" parent="HUD" index="3"]
 
@@ -63,13 +80,13 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing" ]
+_sections_unfolded = [ "Limit", "Smoothing" ]
 
 [node name="Timer" type="Node2D" parent="." index="3"]
 
 position = Vector2( 510.919, 293.632 )
 script = ExtResource( 5 )
 
-[node name="Enemies" parent="." index="4" instance=ExtResource( 6 )]
+[node name="FlyingEnemy" parent="." index="4" instance=ExtResource( 6 )]
 
 
