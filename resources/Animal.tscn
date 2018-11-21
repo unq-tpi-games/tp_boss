@@ -35,6 +35,7 @@ extents = Vector2( 10.0286, 10 )
 
 [node name="Animal" groups=[
 "animal",
+"enemies",
 ] instance=ExtResource( 1 )]
 
 position = Vector2( 1.02667, -0.513344 )
