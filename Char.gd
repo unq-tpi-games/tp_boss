@@ -17,16 +17,16 @@ var food_secs = 0
 func _physics_process(delta):
     #velocity.y += delta * GRAVITY
 
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") and get_position().x >= 50:
 		velocity.x = -WALK_SPEED
 		$Sprite.play("walkLeft")
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right") and get_position().x <= get_viewport_rect().size.x - 50:
 		velocity.x =  WALK_SPEED
 		$Sprite.play("walkRight")
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_up") and get_position().y >= 0:
 		velocity.y = -WALK_SPEED
 		$Sprite.play("walkUp")
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down") and get_position().y <= get_viewport_rect().size.y -50:
 		velocity.y = WALK_SPEED
 		$Sprite.play("walkDown")
 	else:
