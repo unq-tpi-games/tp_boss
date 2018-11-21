@@ -7,17 +7,21 @@ func set_ease(tween, pos):
 func obj_pos():
 	return get_node("/root/World/Char").get_position()
 
-func attack():
-	#explota y causa daño en un radio de 10px
-	pass
+func attack(obj):
+	obj.damage(10)
+	#TODO:explota pero no se llega a mostrar por el queue_free.
+	sprite.play('explosion')
+	queue_free()
 
 func getAttack(body):
 	if body.is_in_group("arrow"):
-		queue_free()
+		health -= 25
+		if health == 0:
+			queue_free()
 
 func _on_Area2D_body_entered(body):
-	print("Entro")
 	if body.is_in_group("arrow"):
 		getAttack(body)
 		body.queue_free()
-	pass # replace with function body
+	if body.is_in_group("main_group"):
+		attack(body)

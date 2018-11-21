@@ -8,6 +8,9 @@ var camera_x
 var camera_y
 var rand_index
 
+const MAX_HEALTH = 100
+var health = MAX_HEALTH
+
 onready var sprite = get_node('AnimatedSprite')
 var velocity = Vector2()
 var animation = 'normal'
@@ -26,6 +29,8 @@ func _ready():
 	randomize()
 	rand_index = randi()%1
 	
+	sprite.play('normal')
+	
 	tween = Tween.new()
 	add_child(tween)
 	set_position(calculate_init_pos())
@@ -40,13 +45,3 @@ func _ready():
 	#TODO: la posicion deberia actualizarse con la pos del personaje,
 	# el ataque tiene que estar definido en otra funcion
 	set_ease(tween, obj_pos)
-	move_to(obj_pos)
-
-func _process(delta):
-	#TODO: usar signals
-	if get_position() == obj_pos:
-		attack()
-
-func _on_Enemy_tree_entered(body):
-	print(body)
-	pass # replace with function body
