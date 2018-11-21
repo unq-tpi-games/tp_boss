@@ -39,6 +39,9 @@ func _physics_process(delta):
 func _ready():
 	set_scale(Vector2(30,30))
 	pass
+
+func damage(quantity):
+	health -= quantity
 	
 func receive(obj, quantity):
 	if obj.is_in_group("tree"):
