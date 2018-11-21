@@ -46,3 +46,6 @@ func _process(delta):
 	#TODO: usar signals
 	if get_position() == obj_pos:
 		attack()
+
+func _on_Enemy_tree_entered():
+	pass # replace with function body
