@@ -1,15 +1,31 @@
 extends RigidBody2D
 var direction = Vector2(0, -1)
 var speed = 300
-
-
+var level = 1
+var fire_range = 200
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	set_physics_process(true)
+	# Set and rotate bullet sprite
+	var sprite = get_node("Sprite")
+	sprite.set_frame(level-1)
+	var rad_angle = atan2(direction.x, -direction.y)
+	set_rotation(rad_angle)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _physics_process(delta):
+	var pos = get_position()
+	if pos.y > -fire_range:
+		set_position(pos + (direction * speed * delta))
+		#pos.y -= speed * delta
+		#set_position(pos)
+	else:
+		#print("Bullet dies")
+		queue_free()
+
+
+func _on_Arrow_body_entered(body):
+	if body.is_in_group("enemies"):
+		print("entro")
+		#Cuerpo recibe el ataque
+		#body.hit(damage[level])
+		queue_free()
