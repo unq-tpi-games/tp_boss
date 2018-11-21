@@ -59,16 +59,16 @@ func spawn_resources():
 	
 	rock_resource = rock.instance()
 	rock_resource.set_scale(Vector2(0.5,0.5))
-	rock_resource.position = Vector2(rand_range(0,600),rand_range(0,300))
+	rock_resource.position = Vector2(rand_range(50,300),rand_range(240,500))
 	add_child(rock_resource)
 	
 	tree_resource = tree.instance()
 	tree_resource.set_scale(Vector2(0.5,0.5))
-	tree_resource.position = Vector2(rand_range(0,600),rand_range(0,500))
+	tree_resource.position = Vector2(rand_range(350,600),rand_range(240,500))
 	add_child(tree_resource)
 	
 	sheep_resource = sheep.instance()
-	sheep_resource.position =  Vector2(rand_range(0,600),rand_range(0,500))
+	sheep_resource.position =  Vector2(rand_range(650,1000),rand_range(240,500))
 	add_child(sheep_resource)
 
 

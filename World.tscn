@@ -10,17 +10,18 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 25600, 0, 25600, 25600, 0, 25600, 0, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 0, 0, 0, 25600, 25600, 25600, 25600, 0 ) ]
+vertices = PoolVector2Array( 25600, 0, 25600, 25600, 0, 25600, -6.01987, 82.5074, 0, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
+outlines = [ PoolVector2Array( 0, 0, -6.01987, 82.5074, 0, 25600, 25600, 25600, 25600, 0 ) ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -92,40 +93,42 @@ script = ExtResource( 5 )
 
 [node name="FlyingEnemy" parent="." index="4" instance=ExtResource( 6 )]
 
-[node name="Node2D" type="Node2D" parent="." index="5"]
+[node name="Fences" type="Node2D" parent="." index="5"]
 
-[node name="Fence" parent="Node2D" index="0" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="Fence" parent="Fences" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 565.79, 113.955 )
 
-[node name="Fence2" parent="Node2D" index="1" instance=ExtResource( 7 )]
+[node name="Fence2" parent="Fences" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 484.906, 113.392 )
 
-[node name="Fence3" parent="Node2D" index="2" instance=ExtResource( 7 )]
+[node name="Fence3" parent="Fences" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 616.362, 114.168 )
 
-[node name="Fence4" parent="Node2D" index="3" instance=ExtResource( 7 )]
+[node name="Fence4" parent="Fences" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 438.636, 113.051 )
 
-[node name="Fence5" parent="Node2D" index="4" instance=ExtResource( 7 )]
+[node name="Fence5" parent="Fences" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 396.43, 75.367 )
 rotation = -1.58131
 
-[node name="Fence7" parent="Node2D" index="5" instance=ExtResource( 7 )]
+[node name="Fence7" parent="Fences" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 651.8, 81.5057 )
 rotation = -1.58131
 
-[node name="Fence8" parent="Node2D" index="6" instance=ExtResource( 7 )]
+[node name="Fence8" parent="Fences" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 651.8, 36.0794 )
 rotation = -1.58131
 
-[node name="Fence6" parent="Node2D" index="7" instance=ExtResource( 7 )]
+[node name="Fence6" parent="Fences" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 396.43, 32.3962 )
 rotation = -4.7649
