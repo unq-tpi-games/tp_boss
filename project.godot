@@ -14,6 +14,12 @@ config/name="BOSS"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="Char-Resources"
+2d_physics/layer_2="Enemies-Char"
+2d_physics/layer_3="Arrow-Enemies"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

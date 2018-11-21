@@ -47,5 +47,6 @@ func _process(delta):
 	if get_position() == obj_pos:
 		attack()
 
-func _on_Enemy_tree_entered():
+func _on_Enemy_tree_entered(body):
+	print(body)
 	pass # replace with function body
