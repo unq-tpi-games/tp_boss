@@ -8,7 +8,9 @@
 custom_solver_bias = 0.0
 radius = 11.3319
 
-[node name="Arrow" type="RigidBody2D" index="0"]
+[node name="Arrow" type="RigidBody2D" index="0" groups=[
+"arrow",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -39,7 +41,5 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
 
 

@@ -22,10 +22,3 @@ func _physics_process(delta):
 		#print("Bullet dies")
 		queue_free()
 
-
-func _on_Arrow_body_entered(body):
-	if body.is_in_group("enemies"):
-		print("entro")
-		#Cuerpo recibe el ataque
-		#body.hit(damage[level])
-		queue_free()

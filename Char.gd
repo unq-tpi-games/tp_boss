@@ -9,7 +9,7 @@ var health = 100
 
 var wood = 0
 var food = 0
-var stone = 0
+var stone = 300
 
 var health_secs = 0
 var food_secs = 0
