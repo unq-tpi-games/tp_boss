@@ -13,7 +13,7 @@ vertices = PoolVector2Array( 25600, 0, 25600, 25600, 0, 25600, 0, 0 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 0, 0, 0, 25600, 25600, 25600, 25600, 0 ) ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -45,6 +45,7 @@ _sections_unfolded = [ "Transform" ]
 
 navpoly = SubResource( 1 )
 enabled = true
+_sections_unfolded = [ "Transform" ]
 
 [node name="Char" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -52,8 +53,6 @@ position = Vector2( 534.468, 163.734 )
 scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
-
-editor/display_folded = true
 
 [node name="Camera2D" type="Camera2D" parent="HUD" index="3"]
 

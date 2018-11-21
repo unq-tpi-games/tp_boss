@@ -27,7 +27,7 @@ custom_solver_bias = 0.0
 radius = 28.5245
 height = 40.7138
 
-[node name="FlyingEnemy" index="0" instance=ExtResource( 1 )]
+[node name="FlyingEnemy" instance=ExtResource( 1 )]
 
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
@@ -36,7 +36,6 @@ script = ExtResource( 2 )
 
 frames = SubResource( 1 )
 animation = "normal"
-frame = 1
 playing = true
 
 [node name="KinematicBody2D" parent="." index="1"]
@@ -49,7 +48,5 @@ position = Vector2( 5.41023, -2.53944 )
 rotation = 1.5708
 scale = Vector2( 1.06233, 1.04182 )
 shape = SubResource( 2 )
-
-[connection signal="tree_entered" from="KinematicBody2D/CollisionShape2D" to="." method="_on_CollisionShape2D_tree_entered"]
 
 
