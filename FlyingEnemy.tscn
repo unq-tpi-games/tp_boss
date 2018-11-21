@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FlyingEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/flying-enemy/frame_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/flying-enemy/frame_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/flying-enemy/frame_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/flying-enemy/frame_3.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "normal",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fast",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 28.5245
+height = 40.7138
+
+[node name="FlyingEnemy" instance=ExtResource( 1 )]
+
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "normal"
+playing = true
+
+[node name="KinematicBody2D" parent="." index="1"]
+
+_sections_unfolded = [ "collision" ]
+
+[node name="CollisionShape2D" parent="KinematicBody2D" index="0"]
+
+position = Vector2( 5.41023, -2.53944 )
+rotation = 1.5708
+scale = Vector2( 1.06233, 1.04182 )
+shape = SubResource( 2 )
+
+
