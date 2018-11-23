@@ -1,10 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://FlyingEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/flying-enemy/frame_0.png" type="Texture" id=2]
 [ext_resource path="res://assets/flying-enemy/frame_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/flying-enemy/frame_2.png" type="Texture" id=4]
 [ext_resource path="res://assets/flying-enemy/frame_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/explosion/0.png" type="Texture" id=6]
+[ext_resource path="res://assets/explosion/1.png" type="Texture" id=7]
+[ext_resource path="res://assets/explosion/2.png" type="Texture" id=8]
+[ext_resource path="res://assets/explosion/3.png" type="Texture" id=9]
+[ext_resource path="res://assets/explosion/4.png" type="Texture" id=10]
+[ext_resource path="res://assets/explosion/5.png" type="Texture" id=11]
+[ext_resource path="res://assets/explosion/6.png" type="Texture" id=12]
+[ext_resource path="res://assets/explosion/7.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -17,6 +25,11 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "fast",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "explosion",
 "speed": 8.0
 } ]
 
@@ -43,7 +56,8 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 frames = SubResource( 1 )
 animation = "normal"
-frame = 1
+
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -82,6 +96,9 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( -9.89823, -4.25542 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

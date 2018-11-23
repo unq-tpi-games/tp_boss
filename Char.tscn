@@ -69,7 +69,10 @@ custom_solver_bias = 0.0
 radius = 0.425358
 height = 0.731338
 
-[node name="Char" type="KinematicBody2D"]
+[node name="Char" type="KinematicBody2D" groups=[
+"main_group",
+"character",
+]]
 
 scale = Vector2( 10, 10 )
 input_pickable = false
