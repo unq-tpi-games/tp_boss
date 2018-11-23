@@ -141,8 +141,6 @@ scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-
 [node name="Camera2D" type="Camera2D" parent="HUD" index="3"]
 
 position = Vector2( 511.455, 299.453 )

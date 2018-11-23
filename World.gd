@@ -2,6 +2,7 @@ extends Node
 var tree = preload("res://resources/Tree.tscn")
 var sheep = preload("res://resources/Animal.tscn")
 var rock = preload("res://resources/Rock.tscn")
+var enemy = preload("res://FlyingEnemy.tscn")
 var wait_time = 500
 var tower = preload("res://Tower.tscn")
 var hfence = preload("res://Fence.tscn")
@@ -15,6 +16,9 @@ var arrow_cursor
 var add_vfence_mode = false
 var add_hfence_mode = false
 
+var inGameEnemies = 0
+var waitEnemiesTime = 100
+
 func _ready():
 	spawn_resources()
 	tower_cursor = load(TOWER_CURSOR)
@@ -25,6 +29,8 @@ func _ready():
 	pass
 
 func _process(delta):
+	check_daytime()
+	
 	wait_time -= 1
 	if wait_time == 0:
 		spawn_resources()
@@ -58,10 +64,15 @@ func gather(receiver, donor):
 	receiver.receive(donor,10)
 
 func check_daytime():
-	if($Timer.is_it_day()):
+	if $Timer.is_it_day():
+		inGameEnemies = 0
 		pass
 		
-	if( $Timer.is_it_night()):
+	if $Timer.is_it_night():
+		waitEnemiesTime -= 1
+		if waitEnemiesTime == 0:
+			spawn_enemy()
+			waitEnemiesTime = 100
 		pass
 		
 func spawn_resources():
@@ -84,7 +95,10 @@ func spawn_resources():
 	sheep_resource.position =  Vector2(rand_range(650,1000),rand_range(300,500))
 	add_child(sheep_resource)
 
-
+func spawn_enemy():
+	if inGameEnemies < 10:
+		add_child(enemy.instance())
+		inGameEnemies += 1
 
 func set_spawn_tower():
 	if $Char.stone >= 100:
