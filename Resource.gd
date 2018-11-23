@@ -24,7 +24,7 @@ func _process(delta):
 		hide()
 		queue_free()
 	if(being_used):
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_focus_next"):
 			get_node("/root/World").gather(character,self)
 		
 	pass

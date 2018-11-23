@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 6.36498, 10 )
 
-[node name="Resource" type="StaticBody2D" groups=[
+[node name="Resource" type="StaticBody2D" index="0" groups=[
 "resources",
 ]]
 
