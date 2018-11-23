@@ -7,7 +7,7 @@ const MAX_HEALTH = 100
 var velocity = Vector2()
 var health = 100
 
-var wood = 0
+var wood = 300
 var food = 0
 var stone = 300
 
