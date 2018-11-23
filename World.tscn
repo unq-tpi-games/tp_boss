@@ -222,6 +222,8 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Wolf" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 0, 270 )
+show_behind_parent = false
+light_mask = 1
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 
