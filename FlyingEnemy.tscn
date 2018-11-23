@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://FlyingEnemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/flying-enemy/frame_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/flying-enemy/frame_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/flying-enemy/frame_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/flying-enemy/frame_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/explosion/0.png" type="Texture" id=6]
+[ext_resource path="res://assets/explosion/1.png" type="Texture" id=7]
+[ext_resource path="res://assets/explosion/2.png" type="Texture" id=8]
+[ext_resource path="res://assets/explosion/3.png" type="Texture" id=9]
+[ext_resource path="res://assets/explosion/4.png" type="Texture" id=10]
+[ext_resource path="res://assets/explosion/5.png" type="Texture" id=11]
+[ext_resource path="res://assets/explosion/6.png" type="Texture" id=12]
+[ext_resource path="res://assets/explosion/7.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "normal",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "fast",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "explosion",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 28.5245
+height = 40.7138
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 36.2421, 38.2145 )
+
+[node name="FlyingEnemy" type="Node2D" groups=[
+"enemies",
+]]
+
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "normal"
+
+frame = 2
+playing = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 6
+collision_mask = 6
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+
+position = Vector2( 5.41023, -2.53944 )
+rotation = 1.5708
+scale = Vector2( 1.06233, 1.04182 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+position = Vector2( 16.9143, 0.507393 )
+scale = Vector2( 1.52857, 1.01586 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 6
+collision_mask = 6
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( -9.89823, -4.25542 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+

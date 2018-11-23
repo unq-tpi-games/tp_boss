@@ -33,7 +33,7 @@ extents = Vector2( 30.0642, 23.6212 )
 custom_solver_bias = 0.0
 extents = Vector2( 10.0286, 10 )
 
-[node name="Animal" groups=[
+[node name="Animal" index="0" groups=[
 "animal",
 ] instance=ExtResource( 1 )]
 
