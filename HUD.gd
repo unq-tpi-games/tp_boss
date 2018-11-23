@@ -50,3 +50,14 @@ func _on_createTower_pressed():
 
 func _on_createHouse_pressed():
 	pass # replace with function body
+
+
+
+func _on_createVFence_pressed():
+	world.set_create_vfence()
+	pass # replace with function body
+
+
+func _on_createHFence_pressed():
+	world.set_create_hfence()
+	pass # replace with function body

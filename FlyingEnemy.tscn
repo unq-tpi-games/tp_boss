@@ -31,7 +31,7 @@ height = 40.7138
 custom_solver_bias = 0.0
 extents = Vector2( 36.2421, 38.2145 )
 
-[node name="FlyingEnemy" type="Node2D" index="0" groups=[
+[node name="FlyingEnemy" type="Node2D" groups=[
 "enemies",
 ]]
 
@@ -43,7 +43,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 frames = SubResource( 1 )
 animation = "normal"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
