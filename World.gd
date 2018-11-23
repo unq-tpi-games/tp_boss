@@ -68,7 +68,7 @@ func check_daytime():
 		inGameEnemies = 0
 		pass
 		
-	if $Timer.is_it_night():
+	if $Timer.is_it_night() and $Timer.day_number > 0:
 		waitEnemiesTime -= 1
 		if waitEnemiesTime == 0:
 			spawn_enemy()
