@@ -3,6 +3,7 @@ var tree = preload("res://resources/Tree.tscn")
 var sheep = preload("res://resources/Animal.tscn")
 var rock = preload("res://resources/Rock.tscn")
 var enemy = preload("res://FlyingEnemy.tscn")
+var wolf = preload("res://Wolf.tscn")
 var wait_time = 500
 var tower = preload("res://Tower.tscn")
 var hfence = preload("res://Fence.tscn")
