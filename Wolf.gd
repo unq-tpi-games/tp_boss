@@ -5,7 +5,7 @@ func set_ease(tween, pos):
 	tween.start()
 
 func obj_pos():
-	return Vector2(200,200)#get_node("/root/World/Char").get_position()
+	return get_node("/root/World/Char").get_position()
 
 func attack(obj):
 	obj.damage(10)
