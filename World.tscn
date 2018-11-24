@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
@@ -28,10 +28,10 @@ background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
-ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 ambient_light_energy = 1.0
 ambient_light_sky_contribution = 1.0
-fog_enabled = false
+fog_enabled = true
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
 fog_sun_amount = 0.0
@@ -98,7 +98,7 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Ambient Light", "Background" ]
+_sections_unfolded = [ "Ambient Light", "Background", "Fog" ]
 
 [node name="World" type="Node" index="0"]
 
@@ -126,6 +126,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="nav" type="Navigation2D" parent="TextureRect" index="0"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="TextureRect/nav" index="0"]
@@ -216,13 +217,13 @@ rotation = -1.58131
 position = Vector2( 396.43, 32.3962 )
 rotation = -4.7649
 
-[node name="Environment" type="WorldEnvironment" parent="." index="6"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="6"]
 
 environment = SubResource( 3 )
 script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Wolf" parent="." index="7" instance=ExtResource( 8 )]
+[node name="Wolf" parent="." index="7" instance=ExtResource( 9 )]
 
 show_behind_parent = false
 light_mask = 1
