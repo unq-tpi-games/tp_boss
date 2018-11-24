@@ -27,7 +27,7 @@ height = 20.0
 custom_solver_bias = 0.0
 extents = Vector2( 9.07141, 10 )
 
-[node name="Wolf" type="Node2D" index="0" groups=[
+[node name="Wolf" type="Node2D" groups=[
 "enemies",
 ]]
 
@@ -42,6 +42,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
 position = Vector2( 1.65337, -39.2893 )
 frames = SubResource( 1 )
 animation = "normal"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
