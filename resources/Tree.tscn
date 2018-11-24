@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 53.2509, 72.8499 )
 
-[node name="Tree" index="0" groups=[
+[node name="Tree" groups=[
 "tree",
 ] instance=ExtResource( 1 )]
 
