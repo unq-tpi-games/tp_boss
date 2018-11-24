@@ -55,8 +55,8 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
-animation = "normal"
-frame = 1
+animation = "explosion"
+frame = 7
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
