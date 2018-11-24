@@ -17,7 +17,9 @@ func use(quant):
 	self.update()
 	
 func update():
-	$Status/available.text = "Disp: "+str(available)
+	#$Status/available.text = "Disp: "+str(available)
+	$Status/available.value = available
+
 
 func _process(delta):
 	if available == 0:

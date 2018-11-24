@@ -33,12 +33,18 @@ extents = Vector2( 30.0642, 23.6212 )
 custom_solver_bias = 0.0
 extents = Vector2( 10.0286, 10 )
 
-[node name="Animal" index="0" groups=[
+[node name="Animal" groups=[
 "animal",
 ] instance=ExtResource( 1 )]
 
 position = Vector2( 1.02667, -0.513344 )
 script = ExtResource( 2 )
+
+[node name="available" parent="Status" index="1"]
+
+margin_top = 15.0
+margin_right = 33.0
+margin_bottom = 31.0
 
 [node name="Sprite" parent="." index="1"]
 
