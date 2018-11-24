@@ -77,7 +77,7 @@ func check_daytime():
 		inGameEnemies = 0
 		pass
 		
-	if $Timer.is_it_night() and $Timer.day_number > 0:
+	if $Timer.is_it_night() and $Timer.day_number > 0 && !$Char.is_dead():
 		waitEnemiesTime -= 1
 		if waitEnemiesTime == 0:
 			spawn_enemy()
@@ -105,8 +105,13 @@ func spawn_resources():
 	add_child(sheep_resource)
 
 func spawn_enemy():
-	if inGameEnemies < 10:
-		add_child(enemy.instance())
+	if inGameEnemies < 10 && !$Char.is_dead():
+		randomize()
+		var n = rand_range(0,100)
+		if (n < 50):
+			add_child(enemy.instance())
+		if (n >= 50):
+			add_child(wolf.instance())
 		inGameEnemies += 1
 
 func set_spawn_tower():
