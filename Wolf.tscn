@@ -27,7 +27,7 @@ height = 20.0
 custom_solver_bias = 0.0
 extents = Vector2( 9.07141, 10 )
 
-[node name="Wolf" type="Node2D" groups=[
+[node name="Wolf" type="Node2D" index="0" groups=[
 "enemies",
 ]]
 
@@ -68,8 +68,8 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_layer = 2
-collision_mask = 8
+collision_layer = 14
+collision_mask = 14
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]

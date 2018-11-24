@@ -1,11 +1,13 @@
 extends StaticBody2D
 var attacking = 0
 var fire_range = 200
-var fire_next = 0.0
+var fire_next = 1
 var time = 0.0
 var level = 1
-var fire_delta = 1.0/5.0
+
 var health = 20
+
+var fire_delta = 1.0/2.0
 
 # Degrees per radian
 const DEG_PER_RAD = 57.295779513

@@ -27,16 +27,39 @@ func is_PM():
 	return (time_hours <= 24 && time_hours >=12)
 
 func is_it_day():
-	return time_hours >=7 && time_hours < 20
+	return (is_it_emorning() || is_it_noon())
+	#return time_hours >=7 && time_hours < 20
 	#return ((time_hours >19 && time_hours <24) || (time_hours >=0 && time_hours <7))
 
+
+
 func is_it_night():
-	return time_hours >= 20 or time_hours < 7
+	return (is_it_evening() || is_it_mnight())
+	#return time_hours >= 20 or time_hours < 7
+
+func is_it_emorning():
+	return time_hours >= 6 && time_hours < 8
+
+func is_it_noon():
+	return time_hours >= 8 && time_hours <19
+
+func is_it_evening():
+	return time_hours >=19 && time_hours <=22
+	
+func is_it_mnight():
+	return time_hours > 22 or time_hours < 6
+	
+	
+func get_hours():
+	return time_hours
+
+func get_minutes():
+	return time_minutes
 
 func _process(delta):
-	if (secs < 0.1):
+	if (secs < 0.01):
 		secs += delta
-	if (secs >= 0.1):
+	if (secs >= 0.01):
 		secs = 0
 		time_minutes += 1
 		if (time_minutes >=60):

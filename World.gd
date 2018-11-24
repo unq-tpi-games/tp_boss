@@ -25,6 +25,7 @@ func _ready():
 	tower_cursor = load(TOWER_CURSOR)
 	arrow_cursor = load(ARROW_CURSOR)
 	$HUD.set_time_worker($Timer)
+	$WorldEnvironment.set_time_worker($Timer)
 	Input.set_custom_mouse_cursor(arrow_cursor)
 	set_process(true)
 	pass

@@ -5,9 +5,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10.2592, 23.7192 )
+extents = Vector2( 29.2528, 9.85897 )
 
-[node name="Fence" type="StaticBody2D" index="0"]
+[node name="Fence" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 6

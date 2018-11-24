@@ -6,8 +6,9 @@ extends "res://Resource.gd"
 
 func _ready():
 	available = 100
-	$Status/available.text = "Disp: "+str(available)
-	$Status/available.rect_position = Vector2(self.position.x, self.position.y+50)
+	#$Status/available.text = "Disp: "+str(available)
+	$Status/available.value = available
+	$Status/available.rect_position = Vector2(self.position.x, self.position.y+20)
 	pass
 
 
