@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Timer.gd" type="Script" id=5]
 [ext_resource path="res://FlyingEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fence.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WorldEnvironment.gd" type="Script" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -20,7 +21,7 @@ radiance_size = 4
 
 [sub_resource type="Environment" id=3]
 
-background_mode = 3
+background_mode = 4
 background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
@@ -98,7 +99,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -215,9 +216,10 @@ rotation = -1.58131
 position = Vector2( 396.43, 32.3962 )
 rotation = -4.7649
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="6"]
+[node name="Environment" type="WorldEnvironment" parent="." index="6"]
 
 environment = SubResource( 3 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
 
 
