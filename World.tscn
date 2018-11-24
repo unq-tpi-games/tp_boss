@@ -8,6 +8,7 @@
 [ext_resource path="res://FlyingEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fence.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=8]
+[ext_resource path="res://Wolf.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -106,7 +107,6 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -221,5 +221,11 @@ rotation = -4.7649
 environment = SubResource( 3 )
 script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
+
+[node name="Wolf" parent="." index="7" instance=ExtResource( 8 )]
+
+show_behind_parent = false
+light_mask = 1
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 
