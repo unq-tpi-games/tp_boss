@@ -14,6 +14,8 @@ func set_time_worker(time_worker):
 func set_wood(wood):
 	$Info/goods/Wood.text = "Madera: "+String(wood)
 
+func killbuttons():
+	$Buttons.hide()
 
 
 func set_rock(rock):

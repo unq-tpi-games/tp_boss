@@ -25,4 +25,7 @@ func _process(delta):
 	if(time_worker.is_it_noon()):
 		environment.adjustment_brightness = 1
 		environment.adjustment_saturation = 1
+	if(time_worker.is_game_over()):
+		environment.adjustment_brightness = 1
+		environment.adjustment_saturation = 5
 	pass
