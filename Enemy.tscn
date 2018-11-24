@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 9.07141, 10 )
 
 [node name="Enemy" type="Node2D" groups=[
 "enemies",
@@ -48,7 +48,5 @@ _sections_unfolded = [ "Collision" ]
 scale = Vector2( 1.01, 1.01 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
-
-[connection signal="tree_entered" from="." to="." method="_on_Enemy_tree_entered"]
 
 
