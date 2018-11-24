@@ -7,11 +7,14 @@ func set_ease(tween, pos):
 func obj_pos():
 	return get_node("/root/World/Char").get_position()
 
+func _process(delta):
+	if $AnimatedSprite.frame == 7:
+		queue_free()
 func attack(obj):
 	obj.damage(10)
 	#TODO:explota pero no se llega a mostrar por el queue_free.
 	sprite.play('explosion')
-	queue_free()
+	#queue_free()
 
 func getAttack(body):
 	if body.is_in_group("arrow"):
