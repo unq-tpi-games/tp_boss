@@ -32,11 +32,18 @@ func _ready():
 
 func _process(delta):
 	check_daytime()
-	
+	if ($Char.is_dead()):
+		$EndScreen/info.text = "Sobreviviste "+String($Timer.get_day_number())+" días"
+		$EndScreen.show()
+		$Timer.stop()
+		$HUD.killbuttons()
+		
+		#get_tree().change_scene("EndScreen.tscn")
 	wait_time -= 1
-	if wait_time == 0:
+	if wait_time == 0 && !$Char.is_dead():
 		spawn_resources()
 		wait_time = 1000
+	
 
 func _input(event):
 	if event is InputEventMouseButton:
