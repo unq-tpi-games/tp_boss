@@ -32,7 +32,7 @@ func _ready():
 
 func _process(delta):
 	check_daytime()
-	if ($Char.is_dead()):
+	if ($Char.is_dead() or $House.is_dead()):
 		$EndScreen/info.text = "Sobreviviste "+String($Timer.get_day_number())+" días"
 		$EndScreen.show()
 		$Timer.stop()
@@ -40,9 +40,8 @@ func _process(delta):
 		
 		#get_tree().change_scene("EndScreen.tscn")
 	wait_time -= 1
-	if wait_time == 0 && !$Char.is_dead():
+	if wait_time == 0 && !$Char.is_dead() && !$House.is_dead():
 		spawn_resources()
-		wait_time = 1000
 	
 
 func _input(event):
@@ -81,7 +80,6 @@ func check_daytime():
 		waitEnemiesTime -= 1
 		if waitEnemiesTime == 0:
 			spawn_enemy()
-			waitEnemiesTime = 100
 		pass
 		
 func spawn_resources():
@@ -103,6 +101,7 @@ func spawn_resources():
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(rand_range(650,1000),rand_range(300,500))
 	add_child(sheep_resource)
+	wait_time = 1000
 
 func spawn_enemy():
 	if inGameEnemies < 10 && !$Char.is_dead():
@@ -113,6 +112,7 @@ func spawn_enemy():
 		if (n >= 50):
 			add_child(wolf.instance())
 		inGameEnemies += 1
+		waitEnemiesTime = 100
 
 func set_spawn_tower():
 	if $Char.stone >= 100:
@@ -149,6 +149,16 @@ func spawn_vfence(pos):
 	add_child(newvFence)
 	$Char.wood -= 75
 	
+func upgrade_house():
+	if $Char.wood >= $House.maxHealth * 2:
+		$Char.wood -= $House.maxHealth * 2
+		$House.upgrade()
+		
+func repair_house():
+	if $Char.wood >= 30 and $House.health + 5 <= $House.maxHealth:
+		$House.repair()
+		$Char.wood -= 30
+
 
 func hud_set_wood(wood):
 	$HUD.set_wood(wood)
@@ -161,3 +171,6 @@ func hud_set_rock(rock):
 	
 func hud_set_life(health):
 	$HUD.set_life(health)
+	
+func hud_set_house_life(health):
+	$HUD.set_house_life(health)
