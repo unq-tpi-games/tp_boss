@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=8]
 [ext_resource path="res://Wolf.tscn" type="PackedScene" id=9]
 [ext_resource path="res://EndScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Castle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Castle.gd" type="Script" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -128,7 +130,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="nav" type="Navigation2D" parent="TextureRect" index="0"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="TextureRect/nav" index="0"]
@@ -187,36 +188,46 @@ editor/display_folded = true
 
 [node name="Fence" parent="Fences" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( 578.17, 117.05 )
+position = Vector2( 566.124, 157.682 )
 
 [node name="Fence2" parent="Fences" index="1" instance=ExtResource( 7 )]
 
-position = Vector2( 473.299, 113.392 )
+position = Vector2( 480.693, 157.189 )
 
 [node name="Fence3" parent="Fences" index="2" instance=ExtResource( 7 )]
 
-position = Vector2( 629.516, 114.942 )
+position = Vector2( 615.95, 157.541 )
 
 [node name="Fence4" parent="Fences" index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 423.934, 113.825 )
+position = Vector2( 434.741, 157.054 )
 
 [node name="Fence5" parent="Fences" index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 396.43, 75.367 )
+position = Vector2( 399.274, 82.1926 )
 rotation = -1.58131
 
-[node name="Fence7" parent="Fences" index="5" instance=ExtResource( 7 )]
+[node name="Fence10" parent="Fences" index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 651.026, 80.7319 )
+position = Vector2( 399.274, 131.678 )
 rotation = -1.58131
 
-[node name="Fence8" parent="Fences" index="6" instance=ExtResource( 7 )]
+[node name="Fence7" parent="Fences" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 652.026, 85.7319 )
+rotation = -1.58131
+
+[node name="Fence9" parent="Fences" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 652.403, 133.278 )
+rotation = -1.58131
+
+[node name="Fence8" parent="Fences" index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 651.8, 36.0794 )
 rotation = -1.58131
 
-[node name="Fence6" parent="Fences" index="7" instance=ExtResource( 7 )]
+[node name="Fence6" parent="Fences" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 396.43, 32.3962 )
 rotation = -4.7649
@@ -236,5 +247,12 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 [node name="EndScreen" parent="." index="8" instance=ExtResource( 10 )]
 
 visible = false
+
+[node name="House" parent="." index="9" groups=[
+"main_group",
+] instance=ExtResource( 11 )]
+
+position = Vector2( 524.1, 77.5508 )
+script = ExtResource( 12 )
 
 
