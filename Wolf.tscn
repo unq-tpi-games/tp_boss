@@ -42,14 +42,15 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
 position = Vector2( 1.65337, -39.2893 )
 frames = SubResource( 1 )
 animation = "normal"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 6
+collision_mask = 9
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision" ]
 
