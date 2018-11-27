@@ -26,6 +26,9 @@ func set_food(food):
 	
 func set_life(life):
 	$Info/LIFE.value = life
+	
+func set_house_life(life):
+	$Info/HOUSE_LIFE.value = life
 
 func set_day_number():
 	$Info/time/day_number.text = "Día número: "+time_worker.get_day_number()
@@ -62,4 +65,14 @@ func _on_createVFence_pressed():
 
 func _on_createHFence_pressed():
 	world.set_create_hfence()
+	pass # replace with function body
+
+
+func _on_upgradeHouse_pressed():
+	world.upgrade_house()
+	pass # replace with function body
+
+
+func _on_repairHouse_pressed():
+	world.repair_house()
 	pass # replace with function body
