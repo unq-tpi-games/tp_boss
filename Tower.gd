@@ -5,7 +5,7 @@ var fire_next = 1
 var time = 0.0
 var level = 1
 
-var health = 20
+var health = 40
 
 var fire_delta = 1.0/2.0
 
