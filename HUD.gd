@@ -6,6 +6,11 @@ func _ready():
 	$Info/goods/Wood.text = "Madera: 0"
 	$Info/goods/Rock.text = "Piedra: 0"
 	$Info/goods/Food.text = "Comida: 0"
+	$Buttons/createTower.set_tooltip("Costo: 100 roca")
+	$Buttons/createHFence.set_tooltip("Costo: 75 madera")
+	$Buttons/createVFence.set_tooltip("Costo: 75 madera")
+	$Buttons/repairHouse.set_tooltip("Costo: 30 madera")
+	$Buttons/createHouse.set_tooltip("Coming soon...")
 	pass
 
 func set_time_worker(time_worker):

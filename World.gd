@@ -9,7 +9,11 @@ var tower = preload("res://Tower.tscn")
 var hfence = preload("res://Fence.tscn")
 var vfence = preload("res://VFence.tscn")
 const TOWER_CURSOR = "res://assets/img/tower_cursor.png"
+const VFENCE_CURSOR = "res://assets/img/vfence_128x64_cv2.png"
+const HFENCE_CURSOR = "res://assets/img/fence_128x64_cursor.png"
 var tower_cursor
+var hfence_cursor
+var vfence_cursor
 var add_tower_mode = false
 const ARROW_CURSOR = "res://assets/img/cursor-arrow-32x32.png"
 var arrow_cursor 
@@ -24,6 +28,8 @@ func _ready():
 	spawn_resources()
 	tower_cursor = load(TOWER_CURSOR)
 	arrow_cursor = load(ARROW_CURSOR)
+	hfence_cursor = load(HFENCE_CURSOR)
+	vfence_cursor = load(VFENCE_CURSOR)
 	$HUD.set_time_worker($Timer)
 	$WorldEnvironment.set_time_worker($Timer)
 	Input.set_custom_mouse_cursor(arrow_cursor)
@@ -54,10 +60,12 @@ func _input(event):
 				add_tower_mode = false
 				Input.set_custom_mouse_cursor(arrow_cursor)
 			if add_vfence_mode:
+				Input.set_custom_mouse_cursor(arrow_cursor)
 				spawn_vfence(event.get_global_position())
 				print("add vfence")
 				add_vfence_mode = false
 			if add_hfence_mode:
+				Input.set_custom_mouse_cursor(arrow_cursor)
 				spawn_hfence(event.get_global_position())
 				print("add hfence")
 				add_hfence_mode = false
@@ -101,7 +109,11 @@ func spawn_resources():
 	sheep_resource = sheep.instance()
 	sheep_resource.position =  Vector2(rand_range(650,1000),rand_range(300,500))
 	add_child(sheep_resource)
-	wait_time = 1000
+	wait_time = 1250
+	if(int($Timer.get_day_number()) > 5):
+		wait_time=1500
+	if(int($Timer.get_day_number()) > 10):
+		wait_time=1750
 
 func spawn_enemy():
 	if inGameEnemies < 10 && !$Char.is_dead():
@@ -123,10 +135,12 @@ func set_spawn_tower():
 func set_create_vfence():
 	if $Char.wood >=75:
 		add_vfence_mode = true
+		Input.set_custom_mouse_cursor(vfence_cursor)
 		
 func set_create_hfence():
 	if $Char.wood >=75:
 		add_hfence_mode = true
+		Input.set_custom_mouse_cursor(hfence_cursor)
 		
 func spawn_tower(pos):
 	if $Char.stone >= 100:
