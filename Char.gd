@@ -7,12 +7,15 @@ const MAX_HEALTH = 100
 var velocity = Vector2()
 var health = 100
 
-var wood = 300
-var food = 0
-var stone = 300
+var wood = 50
+var food = 50
+var stone = 50
 
 var health_secs = 0
 var food_secs = 0
+
+func is_dead():
+	return (health <= 0)
 
 func _physics_process(delta):
     #velocity.y += delta * GRAVITY

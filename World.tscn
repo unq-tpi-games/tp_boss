@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/grass.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Timer.gd" type="Script" id=5]
 [ext_resource path="res://FlyingEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fence.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WorldEnvironment.gd" type="Script" id=8]
+[ext_resource path="res://Wolf.tscn" type="PackedScene" id=9]
+[ext_resource path="res://EndScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Castle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Castle.gd" type="Script" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -20,16 +25,16 @@ radiance_size = 4
 
 [sub_resource type="Environment" id=3]
 
-background_mode = 3
+background_mode = 4
 background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
-ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 ambient_light_energy = 1.0
 ambient_light_sky_contribution = 1.0
-fog_enabled = false
+fog_enabled = true
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
 fog_sun_amount = 0.0
@@ -96,9 +101,9 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Ambient Light", "Background" ]
+_sections_unfolded = [ "Adjustments", "Ambient Light", "Auto Exposure", "Background", "DOF Near Blur", "Fog", "Glow", "Resource", "SS Reflections", "Tonemap" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -141,6 +146,8 @@ scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
+
 [node name="Camera2D" type="Camera2D" parent="HUD" index="3"]
 
 position = Vector2( 511.455, 299.453 )
@@ -181,36 +188,46 @@ editor/display_folded = true
 
 [node name="Fence" parent="Fences" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( 565.79, 113.955 )
+position = Vector2( 566.124, 157.682 )
 
 [node name="Fence2" parent="Fences" index="1" instance=ExtResource( 7 )]
 
-position = Vector2( 484.906, 113.392 )
+position = Vector2( 480.693, 157.189 )
 
 [node name="Fence3" parent="Fences" index="2" instance=ExtResource( 7 )]
 
-position = Vector2( 616.362, 114.168 )
+position = Vector2( 615.95, 157.541 )
 
 [node name="Fence4" parent="Fences" index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 438.636, 113.051 )
+position = Vector2( 434.741, 157.054 )
 
 [node name="Fence5" parent="Fences" index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 396.43, 75.367 )
+position = Vector2( 399.274, 82.1926 )
 rotation = -1.58131
 
-[node name="Fence7" parent="Fences" index="5" instance=ExtResource( 7 )]
+[node name="Fence10" parent="Fences" index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 651.8, 81.5057 )
+position = Vector2( 399.274, 131.678 )
 rotation = -1.58131
 
-[node name="Fence8" parent="Fences" index="6" instance=ExtResource( 7 )]
+[node name="Fence7" parent="Fences" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 652.026, 85.7319 )
+rotation = -1.58131
+
+[node name="Fence9" parent="Fences" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 652.403, 133.278 )
+rotation = -1.58131
+
+[node name="Fence8" parent="Fences" index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 651.8, 36.0794 )
 rotation = -1.58131
 
-[node name="Fence6" parent="Fences" index="7" instance=ExtResource( 7 )]
+[node name="Fence6" parent="Fences" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 396.43, 32.3962 )
 rotation = -4.7649
@@ -218,6 +235,24 @@ rotation = -4.7649
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="6"]
 
 environment = SubResource( 3 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
+
+[node name="Wolf" parent="." index="7" instance=ExtResource( 9 )]
+
+show_behind_parent = false
+light_mask = 1
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="EndScreen" parent="." index="8" instance=ExtResource( 10 )]
+
+visible = false
+
+[node name="House" parent="." index="9" groups=[
+"main_group",
+] instance=ExtResource( 11 )]
+
+position = Vector2( 524.1, 77.5508 )
+script = ExtResource( 12 )
 
 

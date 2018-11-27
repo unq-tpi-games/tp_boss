@@ -9,11 +9,18 @@
 custom_solver_bias = 0.0
 extents = Vector2( 53.2509, 72.8499 )
 
-[node name="Tree" index="0" groups=[
+[node name="Tree" groups=[
 "tree",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+
+[node name="available" parent="Status" index="1"]
+
+margin_left = -6.0
+margin_top = 58.0
+margin_right = 55.0
+margin_bottom = 74.0
 
 [node name="Sprite" parent="." index="1"]
 
