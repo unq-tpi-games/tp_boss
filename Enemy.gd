@@ -16,18 +16,18 @@ var velocity = Vector2()
 var animation = 'normal'
 
 
-#posicion inicial en base a lo que muestra la camara
 func calculate_init_pos():
-	camera_x = rand_range(1200,1250) #get_viewport().get_node("/root/World/HUD/Camera2D").get_camera_position()#get camera limits /2
-	camera_y = rand_range(0,300)   #get_viewport().get_node("/root/World/HUD/Camera2D").get_camera_screen_center()#get camera limits /2
-	return Vector2([-camera_x, camera_x][rand_index], camera_y)
+	camera_x = rand_range(1200,1250)
+	camera_y = rand_range(0,600)
+	#como el random no está siendo tal, agrego posiciones
+	return Vector2([-10, camera_x, -10, camera_x][rand_index], camera_y)
 	
 func move_to(pos):
 	set_position(pos)
 
 func _ready():
 	randomize()
-	rand_index = randi()%1
+	rand_index = randi()%4
 	
 	sprite.play('normal')
 	
@@ -45,3 +45,7 @@ func _ready():
 	#TODO: la posicion deberia actualizarse con la pos del personaje,
 	# el ataque tiene que estar definido en otra funcion
 	set_ease(tween, obj_pos)
+
+func _process(delta):
+	if (position == obj_pos):
+		queue_free()
