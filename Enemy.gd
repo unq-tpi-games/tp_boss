@@ -16,7 +16,6 @@ var velocity = Vector2()
 var animation = 'normal'
 
 
-#posicion inicial en base a lo que muestra la camara
 func calculate_init_pos():
 	camera_x = rand_range(1200,1250)
 	camera_y = rand_range(0,600)
@@ -46,3 +45,7 @@ func _ready():
 	#TODO: la posicion deberia actualizarse con la pos del personaje,
 	# el ataque tiene que estar definido en otra funcion
 	set_ease(tween, obj_pos)
+
+func _process(delta):
+	if (position == obj_pos):
+		queue_free()

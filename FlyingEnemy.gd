@@ -14,7 +14,7 @@ func attack(obj):
 	obj.damage(10)
 	#TODO:explota pero no se llega a mostrar por el queue_free.
 	sprite.play('explosion')
-	#queue_free()
+	queue_free()
 
 func getAttack(body):
 	if body.is_in_group("arrow"):
